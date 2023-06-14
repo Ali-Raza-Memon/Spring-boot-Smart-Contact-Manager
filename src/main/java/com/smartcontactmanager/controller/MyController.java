@@ -12,4 +12,12 @@ public class MyController {
         model.addAttribute("title","Home - Smart Contact Manager");
         return "Home";
     }
+
+    @GetMapping("/about")
+    public String about(Model model){
+        model.addAttribute("title","About - Smart Contact Manager");
+        return "About";
+    }
+
+
 }
