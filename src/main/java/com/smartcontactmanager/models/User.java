@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Data
@@ -27,8 +29,12 @@ public class User {
     private String email;
     private String password;
     private String imageUrl;
-
     @Column(length = 500)
     private String about;
+
+
+    private List<Contact> contacts = new ArrayList<>();
+
+
 
 }

@@ -13,7 +13,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "Contact")
-public class Contact {
+public class Contact{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
