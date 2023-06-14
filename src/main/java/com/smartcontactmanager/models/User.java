@@ -32,7 +32,7 @@ public class User {
     @Column(length = 500)
     private String about;
 
-
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
 
 

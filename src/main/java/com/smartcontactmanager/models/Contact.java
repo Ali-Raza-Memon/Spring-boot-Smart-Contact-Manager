@@ -27,4 +27,7 @@ public class Contact{
     @Column(length = 5000)
     private String description;
 
+    @ManyToOne(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+    private User user;
+
 }
