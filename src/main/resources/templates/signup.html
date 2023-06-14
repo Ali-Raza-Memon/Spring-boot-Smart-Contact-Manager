@@ -18,35 +18,46 @@
                             <div class="card-body p-5">
                                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                                <form th:href="@{/do_register}" method="post">
+                                <form th:href="@{/do_register}" method="post" th:object="${user}">
 
                                     <div class="form-outline mb-4">
 
                                         <label class="form-label" for="name_field">Your Name</label>
                                         <input
+                                                name="name"
                                                 type="password"
                                                id="name_field"
                                                class="form-control"
                                                 aria-labelledby="passwordHelpBlock">
+                                                th:value="${user.name}"
+                                    </div>
 
 <!--                                        <div class="form-text">-->
 <!--                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.-->
 <!--                                        </div>-->
 
-                                    </div>
+
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="email_field">Your Email</label>
-                                        <input type="email" id="email_field" class="form-control" aria-labelledby="passwordHelpBlock">
+                                        <input
+                                                name="email"
+                                                type="email"
+                                                id="email_field"
+                                                class="form-control"
+                                                aria-labelledby="passwordHelpBlock" th:value="${user.email}">
+
+
+                                    </div>
 <!--                                        <div class="form-text">-->
 <!--                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.-->
 <!--                                        </div>-->
-                                    </div>
+
 
 <!--                                    //Password field-->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="password_field">Your Password</label>
-                                        <input type="password" id="password_field" class="form-control" aria-labelledby="passwordHelpBlock">
+                                        <input name="password" type="password" id="password_field" class="form-control" aria-labelledby="passwordHelpBlock">
 <!--                                        <div class="form-text">-->
 <!--                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.-->
 <!--                                        </div>-->
@@ -55,7 +66,7 @@
 <!--                                    user about field-->
 
                                     <div class="form-group">
-                                        <textarea placeholder="Enter something yourself"  rows="10" class="form-control"></textarea>
+                                        <textarea name="about" th:value="${user.about}" placeholder="Enter something yourself"  rows="10" class="form-control"></textarea>
 
                                     </div>
 
