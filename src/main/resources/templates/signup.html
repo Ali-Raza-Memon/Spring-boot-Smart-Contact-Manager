@@ -16,6 +16,15 @@
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
+
+<!--                                Alert Message-->
+                                <div th:if="${session.message}"  th:classappend="${session.message.type}"  class="alert alert-primary" role="alert">
+                                    <p th:text="${session.message.content}"></p>
+                                    <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+
+                                </div>
+
+
                                 <h2 class="text-uppercase text-center mb-5"><u>Register here</u></h2>
 
                                 <form th:action="@{/do_register}" method="post" th:object="${user}">
@@ -125,15 +134,8 @@
                                     </div>
 
 
-
-
-
                                     <p class=  "text-center text-muted mt-5 mb-0">Have already an account?
                                         <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
-
-
-
-
 
 
 
