@@ -32,8 +32,20 @@ public class MyController {
 
     @RequestMapping(value="/do_register", method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user, @RequestParam(value= "agreement", defaultValue = "false") boolean agreement, Model model ){
+
+        if(!agreement){
+            System.out.println("You have not agreed the terms and conditions");
+        }
+        user.setRoll("ROLE_USER");
+        user.setEnabled(true);
+
+
         System.out.println("Agreement"+agreement);
         System.out.println("User"+user);
+
+        model.addAttribute("user", user);
+
+
         return "signup";
     }
 
