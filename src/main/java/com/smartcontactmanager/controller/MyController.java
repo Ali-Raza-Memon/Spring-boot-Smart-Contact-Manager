@@ -3,10 +3,7 @@ package com.smartcontactmanager.controller;
 import com.smartcontactmanager.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MyController {
@@ -32,12 +29,11 @@ public class MyController {
     }
 
     //handler for registering user
-    @PostMapping("/do_register")
+
+    @RequestMapping(value="/do_register", method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user, @RequestParam(value= "agreement", defaultValue = "false") boolean agreement, Model model ){
         System.out.println("Agreement"+agreement);
         System.out.println("User"+user);
-
-
         return "signup";
     }
 

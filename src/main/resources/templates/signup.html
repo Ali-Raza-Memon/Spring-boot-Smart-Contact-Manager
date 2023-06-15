@@ -16,21 +16,29 @@
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
-                                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+                                <h2 class="text-uppercase text-center mb-5"><u>Register here</u></h2>
 
-                                <form th:href="@{/do_register}" method="post" th:object="${user}">
+                                <form th:action="@{/do_register}" method="post" th:object="${user}">
+
+
+
 
                                     <div class="form-outline mb-4">
-
                                         <label class="form-label" for="name_field">Your Name</label>
+
                                         <input
                                                 name="name"
-                                                type="password"
-                                               id="name_field"
-                                               class="form-control"
-                                                aria-labelledby="passwordHelpBlock">
+                                                type="text"
+                                                id="name_field"
+                                                class="form-control"
+                                                aria-labelledby="passwordHelpBlock"
+                                                placeholder="Enter your name"
                                                 th:value="${user.name}"
+                                                required
+                                        />
                                     </div>
+
+
 
 <!--                                        <div class="form-text">-->
 <!--                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.-->
@@ -45,7 +53,11 @@
                                                 type="email"
                                                 id="email_field"
                                                 class="form-control"
-                                                aria-labelledby="passwordHelpBlock" th:value="${user.email}">
+                                                aria-labelledby="passwordHelpBlock"
+                                                th:value="${user.email}"
+                                                required
+                                                placeholder="Enter here"
+                                        />
 
 
                                     </div>
@@ -57,7 +69,15 @@
 <!--                                    //Password field-->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="password_field">Your Password</label>
-                                        <input name="password" type="password" id="password_field" class="form-control" aria-labelledby="passwordHelpBlock">
+                                        <input
+                                                name="password"
+                                                type="password"
+                                                id="password_field"
+                                                class="form-control"
+                                                aria-labelledby="passwordHelpBlock"
+                                                required
+                                                placeholder="Enter here"
+                                        />
 <!--                                        <div class="form-text">-->
 <!--                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.-->
 <!--                                        </div>-->
@@ -66,7 +86,15 @@
 <!--                                    user about field-->
 
                                     <div class="form-group">
-                                        <textarea name="about" th:value="${user.about}" placeholder="Enter something yourself"  rows="10" class="form-control"></textarea>
+                                        <textarea
+                                                name="about"
+                                                type="text"
+                                                th:value="${user.about}"
+                                                placeholder="Enter something yourself"
+                                                rows="5"
+                                                class="form-control">
+
+                                        </textarea>
 
                                     </div>
 
@@ -78,7 +106,7 @@
                                         <input type="checkbox"
                                                name="agreement"
                                                class="form-check-input"
-                                               id="agreement"
+                                               id="agreement" />
 
                                     </div>
 
@@ -86,11 +114,11 @@
 
                                     <div class="container d-flex justify-content-center">
 
-                                       <button type="submit" class="btn btn-primary text-white me-4  btn-block">
+                                       <button type="submit" class="btn btn-primary text-white me-4  bg-primary">
                                            Submit
                                        </button>
 
-                                        <button type="reset" class="btn btn-warning  btn-block">
+                                        <button type="reset" class="btn btn-primary  bg-primary">
                                             Reset
                                         </button>
 
